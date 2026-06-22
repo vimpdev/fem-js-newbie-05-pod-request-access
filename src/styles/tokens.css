@@ -1,0 +1,48 @@
+@layer tokens {
+
+  :root {
+    --clr-green: #54E6AF;
+    --clr-blue-950: #121725;
+    --clr-blue-900: #2C344B;
+    --clr-blue-600: #5A668A;
+    --clr-blue-300: #C2CBE5;
+    --clr-white: #FFFFFF;
+    --clr-red: #FB3E3E;
+
+    --space-0: 0;
+    --space-50: 4px;
+    --space-100: 8px;
+    --space-200: 16px;
+    --space-300: 24px;
+    --space-400: 32px;
+    --space-500: 40px;
+    --space-700: 56px;
+    --space-800: 64px;
+    --space-1000: 80px;
+    --space-1100: 88px;
+    --space-1300: 104px;
+
+    --clr-txt-primary: var(--clr-blue-950);
+    --clr-txt-secondary: var(--clr-blue-300);
+    --clr-txt-inverse: var(--clr-white);
+    --clr-txt-accent: var(--clr-green);
+    --clr-txt-error: var(--clr-red);
+
+    --clr-bg-primary: var(--clr-blue-950);
+    --clr-bg-accent: var(--clr-green);
+    --clr-bg-input: var(--clr-blue-900);
+
+    --clr-border-error: var(--clr-red);
+
+    --ff-base: 'Chivo', system-ui, sans-serif;
+
+    --fs-xs: 12px;
+    --fs-sm: 14px;
+    --fs-base: 16px;
+    --fs-lg: clamp(14px, .5rem + 1.6vw, 18px);
+    --fs-xl: clamp(32px, 1.15rem + 3.6vw, 48px);
+
+    --fw-light: 300;
+    --fw-bold: 700;
+  }
+}
