@@ -1,20 +1,20 @@
 {
   "name": "fem-js-newbie-05-pod-request-access-landing-page",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Frontend Mentor - Pod request access landing page",
+  "author": "VIMP",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "servor src index.html 1234 --reload"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "^11.7.0",
+      "version": "11.7.0",
       "onFail": "download"
     }
   },
-  "type": "module"
+  "devDependencies": {
+    "servor": "4.0.2"
+  }
 }
