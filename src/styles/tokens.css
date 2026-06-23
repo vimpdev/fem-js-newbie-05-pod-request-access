@@ -10,17 +10,18 @@
     --clr-red: #FB3E3E;
 
     --space-0: 0;
-    --space-50: 4px;
-    --space-100: 8px;
-    --space-200: 16px;
-    --space-300: 24px;
-    --space-400: 32px;
-    --space-500: 40px;
-    --space-700: 56px;
-    --space-800: 64px;
-    --space-1000: 80px;
-    --space-1100: 88px;
-    --space-1300: 104px;
+    --space-50: 0.25rem;
+    --space-100: 0.5rem;
+    --space-200: 1rem;
+    --space-300: 1.5rem;
+    --space-400: 2rem;
+    --space-500: 2.5rem;
+    --space-700: 3.5rem;
+    --space-800: 4rem;
+    --space-900: 4.5rem;
+    --space-1000: 5rem;
+    --space-1100: 5.5rem;
+    --space-1300: 6.5rem;
 
     --clr-txt-primary: var(--clr-blue-950);
     --clr-txt-secondary: var(--clr-blue-300);
@@ -36,13 +37,15 @@
 
     --ff-base: 'Chivo', system-ui, sans-serif;
 
-    --fs-xs: 12px;
-    --fs-sm: 14px;
-    --fs-base: 16px;
-    --fs-lg: clamp(14px, .5rem + 1.6vw, 18px);
-    --fs-xl: clamp(32px, 1.15rem + 3.6vw, 48px);
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.875rem;
+    --fs-base: 1rem;
+    --fs-lg: clamp(0.875rem, .5rem + 1.6vw, 1.125rem);
+    --fs-xl: clamp(2rem, 1.15rem + 3.6vw, 3rem);
 
     --fw-light: 300;
     --fw-bold: 700;
+
+    --transition-fast: .25s ease;
   }
 }

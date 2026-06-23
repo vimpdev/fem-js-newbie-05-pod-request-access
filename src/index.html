@@ -16,7 +16,6 @@
 <body>
 
   <main>
-
     <section class="hero" aria-labelledby="hero-title">
       <picture class="hero__media">
         <source media="(min-width: 55.5rem)" srcset="./assets/images/hero/desktop.jpg">
@@ -24,13 +23,13 @@
         <img src="./assets/images/hero/mobile.jpg" alt="">
       </picture>
 
-      <div class="hero__content">
+      <div class="hero__content stack">
         <header class="hero__header">
           <img src="./assets/images/logo/logo.svg" alt="Pod">
         </header>
 
-        <div class="hero__body">
-          <div class="hero__intro">
+        <div class="hero__body stack">
+          <div class="hero__intro stack">
             <h1 id="hero-title"><span>Publish your podcasts</span> everywhere.</h1>
             <p>
               Upload your audio to Pod with a single click. We’ll then distribute your podcast to Spotify,
@@ -48,7 +47,7 @@
             <p id="error-message" aria-live="polite" hidden>Oops! please check your email</p>
           </form>
 
-          <ul class="platforms">
+          <ul class="platforms cluster">
             <li>
               <img src="./assets/images/brands/spotify.svg" alt="Spotify">
             </li>
