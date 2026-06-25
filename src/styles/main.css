@@ -49,6 +49,7 @@
   .hero__content {
     --stack-gap: var(--space-700);
 
+    margin-inline: auto;
     z-index: 10;
   }
 
@@ -71,6 +72,7 @@
 
     h1 {
       max-inline-size: 15ch;
+      margin-inline: auto;
       font-size: var(--fs-xl);
       font-weight: var(--fw-light);
       text-transform: uppercase;
@@ -83,6 +85,8 @@
     }
 
     p {
+      max-inline-size: 40ch;
+      margin-inline: auto;
       font-size: var(--fs-lg);
       color: var(--clr-txt-secondary);
       line-height: 1.5;
@@ -127,6 +131,7 @@
 
   .platforms {
     order: 2;
+    justify-content: center;
   }
 
   .attribution {
@@ -194,8 +199,11 @@
     }
 
     .hero__media {
-      max-inline-size: 28.75rem;
-      block-size: 54.25rem;
+      --media-width: 28.75rem;
+      --media-height: 54.25rem;
+
+      inline-size: var(--media-width);
+      block-size: var(--media-height);
       inset: auto;
       inset-block-start: 0;
       inset-inline-end: 0;
@@ -220,8 +228,9 @@
 
     .hero__content {
       --stack-gap: var(--space-1300);
+      --hero-content-width: 37rem;
 
-      max-inline-size: 37rem;
+      inline-size: var(--hero-content-width);
     }
 
     .hero__header {
@@ -240,6 +249,11 @@
       --stack-gap: var(--space-300);
 
       text-align: left;
+
+      h1,
+      p {
+        margin-inline: 0;
+      }
     }
 
     .signup-form,
@@ -273,6 +287,48 @@
       padding-block-start: var(--space-300);
       inline-size: 34.1875rem;
       justify-content: space-between;
+    }
+  }
+
+  @media (width >=70rem) {
+    .hero {
+      padding: var(--space-1100) var(--space-1000) var(--space-1000) var(--space-1000);
+      justify-content: center;
+    }
+
+    .hero__media {
+      --media-width: 60rem;
+      --media-height: 40.875rem;
+
+      inset-inline-end: -3.875rem;
+      inset-block-start: 50%;
+      transform: translateY(-50%);
+
+      &::after {
+        translate: -28% 50%;
+      }
+
+      img {
+        object-position: left -1rem;
+      }
+    }
+
+    .hero__content {
+      --hero-content-width: 70rem;
+    }
+
+    .hero__body {
+      inline-size: 46rem;
+    }
+
+    .hero__intro {
+      h1 {
+        max-inline-size: unset;
+
+        span {
+          display: block;
+        }
+      }
     }
   }
 }
