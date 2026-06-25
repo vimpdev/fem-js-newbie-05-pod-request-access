@@ -1,4 +1,4 @@
-@layer reset, fonts, tokens, base, layout, components, utilities, responsive, states;
+@layer reset, fonts, tokens, base, layout, components, utilities, responsive;
 
 @import url('./reset.css') layer(reset);
 @import url('./fonts.css') layer(fonts);
@@ -14,6 +14,10 @@
     >* {
       grid-area: 1/1;
     }
+  }
+
+  :focus-visible {
+    outline-color: var(--ring-clr, currentColor);
   }
 }
 
@@ -95,6 +99,14 @@
 
   .signup-form {
     order: 3;
+
+    p {
+      margin-block-start: var(--space-50);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      text-align: center;
+      color: var(--clr-txt-error);
+    }
   }
 
   .signup-form__field {
@@ -121,11 +133,22 @@
       &::placeholder {
         color: color-mix(in srgb, currentColor 50%, transparent);
       }
+
+      &:user-invalid {
+        border-color: var(--clr-border-error);
+      }
     }
 
     button {
+      --ring-clr: var(--clr-bg-accent);
+
       background-color: var(--clr-bg-accent);
       color: var(--clr-txt-primary);
+      transition: background-color var(--transition-fast);
+
+      &:is(:hover, :focus-visible) {
+        background-color: color-mix(in srgb, var(--clr-bg-accent) 50%, var(--clr-white));
+      }
     }
   }
 
@@ -136,14 +159,15 @@
 
   .attribution {
     align-self: end;
-    padding-block-end: var(--space-200);
+    padding-block: var(--space-200);
     font-size: var(--fs-sm);
     text-align: center;
     color: var(--clr-txt-inverse);
     z-index: 10;
 
     a {
-      margin-inline: .3em;
+      margin-inline: .5em;
+      border-radius: .25em;
       position: relative;
 
       &::after {
@@ -158,6 +182,10 @@
         transform-origin: center;
         transition: transform var(--transition-fast);
         pointer-events: none;
+      }
+
+      &:is(:hover, :focus-visible)::after {
+        transform: scale(0);
       }
     }
   }
@@ -263,6 +291,12 @@
 
     .signup-form {
       max-inline-size: 28rem;
+
+      p {
+        margin-block-start: var(--space-100);
+        padding-inline-start: var(--space-400);
+        text-align: left;
+      }
     }
 
     .signup-form__field {
@@ -332,5 +366,3 @@
     }
   }
 }
-
-@layer states {}
