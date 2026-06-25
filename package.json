@@ -7,14 +7,7 @@
   "scripts": {
     "dev": "servor src index.html 1234 --reload"
   },
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "11.7.0",
-      "onFail": "download"
-    }
-  },
   "devDependencies": {
-    "servor": "4.0.2"
+    "servor": "^4.0.2"
   }
 }
