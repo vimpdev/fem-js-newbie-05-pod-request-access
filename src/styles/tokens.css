@@ -46,6 +46,6 @@
     --fw-light: 300;
     --fw-bold: 700;
 
-    --transition-fast: .25s ease;
+    --transition-fast: .25s ease-out;
   }
 }

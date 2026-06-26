@@ -1,10 +1,13 @@
-@layer reset, fonts, tokens, base, layout, components, utilities, responsive;
+@layer reset, fonts, tokens, base, components, animations, utilities, responsive, states;
+
 
 @import url('./reset.css') layer(reset);
 @import url('./fonts.css') layer(fonts);
 @import url('./tokens.css') layer(tokens);
 
+
 @layer base {
+
   body {
     display: grid;
     font-family: var(--ff-base);
@@ -21,7 +24,6 @@
   }
 }
 
-@layer layout {}
 
 @layer components {
 
@@ -38,8 +40,6 @@
   .hero__media {
     position: absolute;
     inset: 0;
-    top: 0;
-    left: 0;
 
     img {
       inline-size: 100%;
@@ -145,10 +145,6 @@
       background-color: var(--clr-bg-accent);
       color: var(--clr-txt-primary);
       transition: background-color var(--transition-fast);
-
-      &:is(:hover, :focus-visible) {
-        background-color: color-mix(in srgb, var(--clr-bg-accent) 50%, var(--clr-white));
-      }
     }
   }
 
@@ -183,15 +179,76 @@
         transition: transform var(--transition-fast);
         pointer-events: none;
       }
+    }
+  }
 
-      &:is(:hover, :focus-visible)::after {
-        transform: scale(0);
-      }
+  .toast {
+    position: fixed;
+    inset-inline-end: var(--space-300);
+    inset-block-end: var(--space-500);
+
+    min-inline-size: 18rem;
+    max-inline-size: 24rem;
+    padding: var(--space-300);
+    font-size: var(--fs-sm);
+    background-color: var(--clr-bg-input);
+    color: var(--clr-txt-inverse);
+    border-radius: .75em;
+    box-shadow: 0 .5rem 1rem hsl(0 0 0 / .25);
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset-inline-start: 0;
+      inset-block-end: 0;
+
+      inline-size: 100%;
+      block-size: .25rem;
+      background-color: var(--clr-bg-accent);
+      transform-origin: left;
+      pointer-events: none;
+    }
+  }
+}
+
+@layer animations {
+
+  @keyframes toast-enter {
+    from {
+      opacity: 0;
+      translate: 0 1rem;
+    }
+
+    to {
+      opacity: 1;
+      translate: 0;
+    }
+  }
+
+  @keyframes toast-exit {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes toast-progress {
+    from {
+      transform: scaleX(1);
+    }
+
+    to {
+      transform: scaleX(0);
     }
   }
 }
 
 @layer utilities {
+
   .visually-hidden {
     position: absolute;
     inline-size: 0.0625rem;
@@ -221,7 +278,6 @@
 @layer responsive {
 
   @media (width >=48rem) {
-
     .hero {
       padding: 3.25rem 2.75rem 2.75rem 2.75rem;
     }
@@ -364,5 +420,28 @@
         }
       }
     }
+  }
+}
+
+@layer states {
+
+  .signup-form__field button:is(:hover, :focus-visible) {
+    background-color: color-mix(in srgb, var(--clr-bg-accent) 50%, var(--clr-white));
+  }
+
+  .attribution a:is(:hover, :focus-visible)::after {
+    transform: scale(0);
+  }
+
+  .toast.is-visible {
+    animation: toast-enter var(--transition-fast);
+
+    &::after {
+      animation: toast-progress 3s linear forwards;
+    }
+  }
+
+  .toast.is-hiding {
+    animation: toast-exit .25s forwards;
   }
 }
