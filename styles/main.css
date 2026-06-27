@@ -1,0 +1,447 @@
+@layer reset, fonts, tokens, base, components, animations, utilities, responsive, states;
+
+
+@import url('./reset.css') layer(reset);
+@import url('./fonts.css') layer(fonts);
+@import url('./tokens.css') layer(tokens);
+
+
+@layer base {
+
+  body {
+    display: grid;
+    font-family: var(--ff-base);
+    font-size: var(--fs-base);
+    background-color: var(--clr-bg-primary);
+
+    >* {
+      grid-area: 1/1;
+    }
+  }
+
+  :focus-visible {
+    outline-color: var(--ring-clr, currentColor);
+  }
+}
+
+
+@layer components {
+
+  .hero {
+    min-block-size: 100dvh;
+    margin-inline: auto;
+    padding: 2.25rem;
+    display: flex;
+    align-items: center;
+    overflow-x: clip;
+    position: relative;
+  }
+
+  .hero__media {
+    position: absolute;
+    inset: 0;
+
+    img {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: .2;
+    }
+  }
+
+  .hero__content {
+    --stack-gap: var(--space-700);
+
+    margin-inline: auto;
+    z-index: 10;
+  }
+
+  .hero__header {
+    img {
+      margin-inline: auto;
+    }
+  }
+
+  .hero__body {
+    --stack-gap: var(--space-500);
+  }
+
+  .hero__intro {
+    --stack-gap: var(--space-200);
+
+    font-weight: var(--fw-light);
+    text-align: center;
+    text-wrap: balance;
+
+    h1 {
+      max-inline-size: 15ch;
+      margin-inline: auto;
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-light);
+      text-transform: uppercase;
+      color: var(--clr-txt-inverse);
+      line-height: 1.2;
+
+      span {
+        color: var(--clr-txt-accent);
+      }
+    }
+
+    p {
+      max-inline-size: 40ch;
+      margin-inline: auto;
+      font-size: var(--fs-lg);
+      color: var(--clr-txt-secondary);
+      line-height: 1.5;
+    }
+  }
+
+  .signup-form {
+    order: 3;
+
+    p {
+      margin-block-start: var(--space-50);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      text-align: center;
+      color: var(--clr-txt-error);
+    }
+  }
+
+  .signup-form__field {
+    --radius: 3em;
+
+    display: grid;
+    gap: var(--space-100);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-bold);
+    line-height: 2;
+
+    input,
+    button {
+      padding-block: var(--space-100);
+      border: 0.125rem solid var(--border-clr, transparent);
+      border-radius: var(--radius);
+    }
+
+    input {
+      padding-inline-start: var(--space-300);
+      background-color: var(--clr-bg-input);
+      color: var(--clr-txt-inverse);
+
+      &::placeholder {
+        color: color-mix(in srgb, currentColor 50%, transparent);
+      }
+
+      &:user-invalid {
+        border-color: var(--clr-border-error);
+      }
+    }
+
+    button {
+      --ring-clr: var(--clr-bg-accent);
+
+      background-color: var(--clr-bg-accent);
+      color: var(--clr-txt-primary);
+      transition: background-color var(--transition-fast);
+    }
+  }
+
+  .platforms {
+    order: 2;
+    justify-content: center;
+  }
+
+  .attribution {
+    align-self: end;
+    padding-block: var(--space-200);
+    font-size: var(--fs-sm);
+    text-align: center;
+    color: var(--clr-txt-inverse);
+    z-index: 10;
+
+    a {
+      margin-inline: .5em;
+      border-radius: .25em;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset-inline-end: 0;
+        inset-block-end: -0.125rem;
+        inline-size: 100%;
+        block-size: 0.125rem;
+        background-color: currentColor;
+        transform: scale(1);
+        transform-origin: center;
+        transition: transform var(--transition-fast);
+        pointer-events: none;
+      }
+    }
+  }
+
+  .toast {
+    position: fixed;
+    inset-inline-end: var(--space-300);
+    inset-block-end: var(--space-500);
+
+    min-inline-size: 18rem;
+    max-inline-size: 24rem;
+    padding: var(--space-300);
+    font-size: var(--fs-sm);
+    background-color: var(--clr-bg-input);
+    color: var(--clr-txt-inverse);
+    border-radius: .75em;
+    box-shadow: 0 .5rem 1rem hsl(0 0 0 / .25);
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset-inline-start: 0;
+      inset-block-end: 0;
+
+      inline-size: 100%;
+      block-size: .25rem;
+      background-color: var(--clr-bg-accent);
+      transform-origin: left;
+      pointer-events: none;
+    }
+  }
+}
+
+@layer animations {
+
+  @keyframes toast-enter {
+    from {
+      opacity: 0;
+      translate: 0 1rem;
+    }
+
+    to {
+      opacity: 1;
+      translate: 0;
+    }
+  }
+
+  @keyframes toast-exit {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes toast-progress {
+    from {
+      transform: scaleX(1);
+    }
+
+    to {
+      transform: scaleX(0);
+    }
+  }
+}
+
+@layer utilities {
+
+  .visually-hidden {
+    position: absolute;
+    inline-size: 0.0625rem;
+    block-size: 0.0625rem;
+    padding: 0;
+    margin: -0.0625rem;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--stack-gap, 1rem);
+  }
+
+  .cluster {
+    display: flex;
+    flex-direction: row;
+    gap: var(--cluster-gap, 1rem);
+    align-items: center;
+  }
+}
+
+@layer responsive {
+
+  @media (width >=48rem) {
+    .hero {
+      padding: 3.25rem 2.75rem 2.75rem 2.75rem;
+    }
+
+    .hero__media {
+      --media-width: 28.75rem;
+      --media-height: 54.25rem;
+
+      inline-size: var(--media-width);
+      block-size: var(--media-height);
+      inset: auto;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        inline-size: 14.5rem;
+        block-size: 6.5rem;
+        background: url('./../assets/images/patterns/bg-pattern-dots.svg') no-repeat;
+        inset-inline-end: 0;
+        inset-block-end: 0;
+        translate: 55% 50%;
+        pointer-events: none;
+      }
+
+      img {
+        opacity: .8;
+        object-position: left top;
+      }
+    }
+
+    .hero__content {
+      --stack-gap: var(--space-1300);
+      --hero-content-width: 37rem;
+
+      inline-size: var(--hero-content-width);
+    }
+
+    .hero__header {
+      img {
+        margin-inline: 0;
+      }
+    }
+
+    .hero__body {
+      padding-block-start: var(--space-1100);
+      padding-inline-end: var(--space-800);
+      background-color: var(--clr-bg-primary);
+    }
+
+    .hero__intro {
+      --stack-gap: var(--space-300);
+
+      text-align: left;
+
+      h1,
+      p {
+        margin-inline: 0;
+      }
+    }
+
+    .signup-form,
+    .platforms {
+      order: 0;
+    }
+
+    .signup-form {
+      max-inline-size: 28rem;
+
+      p {
+        margin-block-start: var(--space-100);
+        padding-inline-start: var(--space-400);
+        text-align: left;
+      }
+    }
+
+    .signup-form__field {
+      >* {
+        grid-area: 1/1;
+      }
+
+      input {
+        padding-block: .75rem;
+        padding-inline-end: 11.5rem;
+      }
+
+      button {
+        justify-self: end;
+        align-self: center;
+        margin-inline-end: .2rem;
+        padding-inline: 2.4rem;
+      }
+    }
+
+    .platforms {
+      padding-block-start: var(--space-300);
+      inline-size: 34.1875rem;
+      justify-content: space-between;
+    }
+  }
+
+  @media (width >=70rem) {
+    .hero {
+      padding: var(--space-1100) var(--space-1000) var(--space-1000) var(--space-1000);
+      justify-content: center;
+    }
+
+    .hero__media {
+      --media-width: 60rem;
+      --media-height: 40.875rem;
+
+      inset-inline-end: -3.875rem;
+      inset-block-start: 50%;
+      transform: translateY(-50%);
+
+      &::after {
+        translate: -28% 50%;
+      }
+
+      img {
+        object-position: left -1rem;
+      }
+    }
+
+    .hero__content {
+      --hero-content-width: 70rem;
+    }
+
+    .hero__body {
+      inline-size: 46rem;
+    }
+
+    .hero__intro {
+      h1 {
+        max-inline-size: unset;
+
+        span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@layer states {
+
+  .signup-form__field button:is(:hover, :focus-visible) {
+    background-color: color-mix(in srgb, var(--clr-bg-accent) 50%, var(--clr-white));
+  }
+
+  .attribution a:is(:hover, :focus-visible)::after {
+    transform: scale(0);
+  }
+
+  .toast.is-visible {
+    animation: toast-enter var(--transition-fast);
+
+    &::after {
+      animation: toast-progress 3s linear forwards;
+    }
+  }
+
+  .toast.is-hiding {
+    animation: toast-exit .25s forwards;
+  }
+}

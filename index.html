@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pod request access | VIMP</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
+
+  <link rel="stylesheet" href="./styles/main.css">
+  <script src="./scripts/main.js" defer></script>
+</head>
+
+<body>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <picture class="hero__media">
+        <source media="(min-width: 70rem)" srcset="./assets/images/hero/desktop.jpg">
+        <source media="(min-width: 48rem)" srcset="./assets/images/hero/tablet.jpg">
+        <img src="./assets/images/hero/mobile.jpg" alt="">
+      </picture>
+
+      <div class="hero__content stack">
+        <header class="hero__header">
+          <img src="./assets/images/logo/logo.svg" alt="Pod">
+        </header>
+
+        <div class="hero__body stack">
+          <div class="hero__intro stack">
+            <h1 id="hero-title"><span>Publish your podcasts</span> everywhere.</h1>
+            <p>
+              Upload your audio to Pod with a single click. We’ll then distribute your podcast to Spotify,
+              Apple Podcasts, Google Podcasts, Pocket Casts and more!
+            </p>
+          </div>
+
+          <form class="signup-form" novalidate>
+            <div class="signup-form__field">
+              <label for="email" class="visually-hidden">Email address</label>
+              <input type="email" name="email" id="email" pattern="^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$"
+                placeholder="Email address" autocomplete="email" required>
+              <button type="submit">Request access</button>
+            </div>
+            <p id="error-message" aria-live="polite" hidden></p>
+          </form>
+
+          <ul class="platforms cluster">
+            <li>
+              <img src="./assets/images/brands/spotify.svg" alt="Spotify">
+            </li>
+            <li>
+              <img src="./assets/images/brands/apple-podcast.svg" alt="Apple Podcasts">
+            </li>
+            <li>
+              <img src="./assets/images/brands/google-podcasts.svg" alt="Google Podcasts">
+            </li>
+            <li>
+              <img src="./assets/images/brands/pocket-casts.svg" alt="Pocket Casts">
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="attribution">
+    <small>Challenge by <a href="https://www.frontendmentor.io/challenges" target="_blank"
+        rel="noopener noreferrer">Frontend Mentor</a> – Coded by <a href="https://www.frontendmentor.io/profile/vimpdev"
+        target="_blank" rel="noopener noreferrer">VIMP</a></small>
+  </footer>
+
+  <div class="toast" role="status" hidden></div>
+</body>
+
+</html>
