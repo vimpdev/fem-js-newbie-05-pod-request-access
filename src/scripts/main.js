@@ -63,6 +63,7 @@ signupForm.addEventListener('submit', (e) => {
 
   clearError();
   signupForm.reset();
+  emailInput.focus();
 
   showToast("Thanks! We'll notify you soon.");
 });
