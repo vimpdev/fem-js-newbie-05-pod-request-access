@@ -16,7 +16,7 @@ The project focuses on writing clean, accessible, and maintainable front-end cod
 ## 🔗 Links
 
 - 🌎 [Live site](https://vimpdev.github.io/fem-js-newbie-05-pod-request-access/)
-<!-- - 📌 [Frontend Mentor solution]() -->
+- 📌 [Frontend Mentor solution](https://www.frontendmentor.io/solutions/pod-request-access-landing-accessible-form-validation-and-css-layers--nE_yLaR5f)
 
 ---
 
