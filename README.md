@@ -1,125 +1,134 @@
-# Frontend Mentor - Pod request access landing page solution
+# 🚀 Pod request access landing page
 
-This is a solution to the [Pod request access landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/pod-request-access-landing-page-eyTmdkLSG). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+![HTML](https://img.shields.io/badge/HTML-5-E34F26?logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-000000?logo=javascript&logoColor=F7DF1E)
+![Status](https://img.shields.io/badge/status-live-2ea44f)
 
-## Table of contents
+![](./docs/github-preview.png)
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-  - [AI Collaboration](#ai-collaboration)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+A responsive landing page built as part of a [Frontend Mentor challenge](https://www.frontendmentor.io/challenges/pod-request-access-landing-page-eyTmdkLSG).
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
+The project focuses on writing clean, accessible, and maintainable front-end code using semantic HTML, modern CSS, and vanilla JavaScript.
 
-## Overview
+---
 
-### The challenge
+## 🔗 Links
 
-Users should be able to:
+- 🌎 [Live site](https://vimpdev.github.io/fem-js-newbie-05-pod-request-access/)
+<!-- - 📌 [Frontend Mentor solution]() -->
 
-- View the optimal layout depending on their device's screen size
-- See hover states for interactive elements
-- Receive an error message when the form is submitted if:
-  - The `Email address` field is empty should show "Oops! Please add your email"
-  - The email is not formatted correctly should show "Oops! Please check your email"
+---
 
-### Screenshot
+## 🎬 Demo
 
-![](./screenshot.jpg)
+![](./docs/demo.gif)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+---
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
+## 📸 Screenshots
 
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
+### 📱 Mobile
 
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+| Default | Validation Error | Success |
+| --- | --- | --- |
+| ![](./docs/screenshots/mobile-default.avif) | ![](./docs/screenshots/mobile-error.avif) | ![](./docs/screenshots/mobile-success.avif) |
 
-### Links
+### 📲 Tablet
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+| Default | Validation Error | Success |
+| --- | --- | --- |
+| ![](./docs/screenshots/tablet-default.avif) | ![](./docs/screenshots/tablet-error.avif) | ![](./docs/screenshots/tablet-success.avif) |
 
-## My process
+### 🖥️ Desktop
 
-### Built with
+| Default | Validation Error | Success |
+| --- | --- | --- |
+| ![](./docs/screenshots/desktop-default.avif) | ![](./docs/screenshots/desktop-error.avif) | ![](./docs/screenshots/desktop-success.avif) |
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+---
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+## ✨ Features
 
-### What I learned
+* Responsive layout for mobile, tablet and desktop
+* Semantic HTML5
+* Mobile-first
+* Accessible form validation
+* Animated toast notification
+* Keyboard-friendly interactions
+* Hover and focus-visible states
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+---
 
-To see how you can add code snippets, see below:
+## 🛠 Tech Stack
 
-```html
-<h1>Some HTML code I'm proud of</h1>
+* HTML5
+* CSS
+  * Layers
+  * Custom Properties
+  * Grid
+  * Flexbox
+* Vanilla JavaScript (ES6+)
+* Constraint Validation API
+
+---
+
+## ♿ Accessibility
+
+This project includes:
+
+* Semantic HTML structure
+* Keyboard navigation
+* Visible focus indicators
+* Dynamic `aria-invalid` and `aria-describedby`
+* Live success announcement using `role="status"`
+
+---
+
+## ⚙️ Form Validation
+
+The email field uses the browser's **Constraint Validation API**.
+
+```text
+Submit form
+      │
+      ▼
+Is the email valid?
+  │                │
+  │ No             │ Yes
+  ▼                ▼
+Display error    Clear error state
+Update ARIA      Reset the form
+Focus input      Return focus to email field
+                 Show success toast
 ```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+---
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+## 💡 What I Learned
 
-### Continued development
+Working on this project helped me practice more than responsive layouts.
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+Some areas I improved were:
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+* Organizing styles with CSS Cascade Layers
+* Building accessible form validation with the Constraint Validation API
+* Updating ARIA attributes dynamically with JavaScript
+* Creating a reusable toast component using CSS animations
+* Keeping commits focused on complete feature
 
-### Useful resources
+---
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+## 🤖 AI Collaboration
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+ChatGPT was used as a development assistant to discuss implementation ideas, review accessibility decisions, and validate edge cases.
 
-### AI Collaboration
+All HTML, CSS, JavaScript, testing, debugging, and implementation decisions were completed manually.
 
-Describe how you used AI tools (if any) during this project. This helps demonstrate your ability to work effectively with AI assistants.
+---
 
-- What tools did you use (e.g., ChatGPT, Claude, GitHub Copilot)?
-- How did you use them (e.g., debugging, generating boilerplate, brainstorming solutions)?
-- What worked well? What didn't?
+## 👩‍💻 Author
 
-**Note: Delete this note and the content above if you didn't use AI, or replace with your own experience.**
+- Frontend Mentor – [@vimpdev](https://www.frontendmentor.io/profile/vimpdev)
 
-## Author
-
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+---
